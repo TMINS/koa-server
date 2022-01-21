@@ -1,20 +1,5 @@
 const mongoose = require("./db");
-const Schema = mongoose.Schema;
-// 测试数据模型
-const ceshiSchema = new Schema({
-  date: Date,
-  password: String,
-  name: String,
-});
-
-const MyModel = mongoose.model("ceshi", ceshiSchema);
-var model = new MyModel({
-  _id: new mongoose.Types.ObjectId(),
-  date: "2021-12-10",
-  password: "123456",
-  name: "test",
-});
-model.save();
+const MyModel = require("../model/user");
 
 class Mongodb {
   constructor() {}
@@ -30,9 +15,9 @@ class Mongodb {
     });
   }
   // 详细查询
-  queryOne(object) {
+  queryOne(obj) {
     return new Promise((resolve, reject) => {
-      MyModel.findOne(object, (err, res) => {
+      MyModel.findOne(obj, (err, res) => {
         if (err) {
           reject(err);
         }

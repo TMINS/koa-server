@@ -24,7 +24,6 @@ module.exports = {
       ctx.success({
         code: 200,
         token,
-        data: result || "",
         message: "登录成功",
       });
     } else {

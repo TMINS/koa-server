@@ -1,12 +1,11 @@
 const mongoose = require("mongoose");
-
-const DB_URL =
-  "mongodb+srv://test:test123456@cluster0.knp5v.mongodb.net/test?retryWrites=true&w=majority";
+const config = require("../config");
+const DB_URL = config.DB_URL;
 
 mongoose.connect(DB_URL, { useUnifiedTopology: true, useNewUrlParser: true });
 
 mongoose.connection.on("connected", function () {
-  console.log("Mongoose connection open to " + DB_URL);
+  console.log("Mongoose Connected -------------------");
 });
 /**
  * 连接异常 error 数据库连接错误
